@@ -1,8 +1,28 @@
 import React from "react";
+import { signOut } from "firebase/auth";
+import { auth } from "../utils/firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { removeUser } from "../utils/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const user = useSelector((store) => store.user);
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        navigate("/");
+      })
+      .catch((error) => {
+        // An error happened.
+        navigate("/error");
+      });
+  };
+
   return (
-    <header className="absolute z-20  px-8 py-4 bg-gradient-to-b from-black">
+    <header className="absolute z-20 w-full  px-8 py-4 bg-gradient-to-b flex justify-between items-center from-black">
       <div>
         <svg
           viewBox="0 0 111 30"
@@ -21,6 +41,17 @@ const Header = () => {
           </g>
         </svg>
       </div>
+      {user && (
+        <div className="flex gap-1">
+          <img className="w-8" src="/user.png" alt="user" />
+          <span
+            className="font-bold text-white cursor-pointer"
+            onClick={handleSignOut}
+          >
+            (SignOut)
+          </span>
+        </div>
+      )}
     </header>
   );
 };
