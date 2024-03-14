@@ -15,7 +15,16 @@
 - Created Redux Store with useSlice
 - Implement SignOut
 - update Profile
-- Fetch from TMDB Movies
+- BugFix:if the user is not logged in Redirect /browse and vice-versa
+- BugFix: Unsubcribe to onAuthChanged Callback
+- Registered for tmdb api & create an app & get access token
+- Get data from TMDB now playing Api
+- Custom Hook for nowPlaying Movies
+- Create MovieSlice
+- Updatedthe Store with Movies Date
+- Fetch Data for Trailer Video
+- Update The store with trailer video data
+- embeded the youtube videoand Make it autoplay amd mute
 
 ## Features
 
