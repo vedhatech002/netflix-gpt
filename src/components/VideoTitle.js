@@ -1,10 +1,10 @@
 const VideoTitle = ({ title, overview }) => {
   return (
-    <div className="pt-[13rem] space-y-4 px-6  font-Poppins text-white absolute bg-gradient-to-r from-black h-screen">
-      <h1 className="text-5xl font-bold ">{title}</h1>
-      <p className="font-Inter w-1/3 text-[1rem] text-left">{overview}</p>
+    <div className="pt-[10rem] space-y-4 px-16  font-Poppins text-white absolute bg-gradient-to-r from-black h-screen w-full">
+      <h1 className="text-4xl font-bold ">{title}</h1>
+      <p className="font-Inter w-1/3 text-[0.9rem] text-left">{overview}</p>
       <div className="flex items-center' gap-3">
-        <button className="px-6 py-2 bg-white bg-opacity-80 text-black font-Inter font-semibold rounded-sm flex items-center gap-1 hover:bg-opacity-50 t">
+        <button className="px-6 py-1.5 bg-white bg-opacity-80 text-black font-Inter font-semibold rounded-sm flex items-center gap-1 hover:bg-opacity-50 t">
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ const VideoTitle = ({ title, overview }) => {
           </span>
           <span> Play</span>
         </button>
-        <button className="px-6 py-2 bg-gray-500 rounded-sm text-white font-Inter bg-opacity-40 font-semibold">
+        <button className="px-6 py-1.5 bg-gray-500 rounded-sm text-white font-Inter bg-opacity-40 font-semibold">
           More Info
         </button>
       </div>

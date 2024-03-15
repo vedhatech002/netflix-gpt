@@ -26,7 +26,7 @@ const Header = () => {
         navigate("/");
       }
     });
-    return () => unSubscribe();
+    // return () => unSubscribe();
   }, []);
 
   const handleSignOut = () => {
