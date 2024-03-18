@@ -6,9 +6,13 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { addUser, removeUser } from "../utils/userSlice";
 import { useEffect } from "react";
+import { toggleGptSearchView } from "../utils/gptSlice";
+import { SUPPORTED_LANGUAGES } from "../utils/constant";
+import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const user = useSelector((store) => store.user);
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -40,6 +44,14 @@ const Header = () => {
       });
   };
 
+  const handleGptSearchToggle = () => {
+    dispatch(toggleGptSearchView());
+  };
+
+  const handleLangChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
+
   return (
     <header className="absolute z-20 w-full  px-8 py-4 bg-gradient-to-b flex justify-between items-center from-black">
       <div>
@@ -61,14 +73,38 @@ const Header = () => {
         </svg>
       </div>
       {user && (
-        <div className="flex gap-1">
-          <img className="w-8" src="/user.png" alt="user" />
-          <span
-            className="font-bold text-white cursor-pointer"
-            onClick={handleSignOut}
+        <div className="flex gap-4">
+          {showGptSearch && (
+            <select
+              className="bg-transparent text-white font-Poppins outline-none"
+              onChange={handleLangChange}
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option
+                  className="text-black"
+                  key={lang.identifier}
+                  value={lang.identifier}
+                >
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
+          <button
+            className="text-white font-semiBold font-Poppins"
+            onClick={handleGptSearchToggle}
           >
-            (SignOut)
-          </span>
+            {showGptSearch ? "Home Page" : "GPT Search"}
+          </button>
+          <div className="flex gap-2">
+            <img className="w-8" src="/user.png" alt="user" />
+            <span
+              className="font-bold text-white cursor-pointer"
+              onClick={handleSignOut}
+            >
+              (SignOut)
+            </span>
+          </div>
         </div>
       )}
     </header>

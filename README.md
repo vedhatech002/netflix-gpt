@@ -26,6 +26,13 @@
 - Update The store with trailer video data
 - embeded the youtube videoand Make it autoplay amd mute
 - Build secondary container
+- Build MovieList
+- Build MovieCard
+- Custom Hooks for fetching movie list and Update store
+- show the movie list in Ui
+- GPT Search page
+- Gpt Search Bar
+- Multi Language Feature
 
 ## Features
 
