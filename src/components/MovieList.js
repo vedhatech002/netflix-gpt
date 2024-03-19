@@ -3,7 +3,9 @@ import MovieCard from "./MovieCard";
 const MovieList = ({ title, movies }) => {
   return (
     <div className="">
-      <h1 className="font-Poppins text-xl font-semibold py-4">{title}</h1>
+      <h1 className="font-Poppins sm:text-xl text-[1rem] font-semibold py-4">
+        {title}
+      </h1>
 
       <div className="flex  overflow-x-auto scroll-smooth snap-align-none touch-auto">
         <div className="flex  ">

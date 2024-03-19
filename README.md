@@ -33,6 +33,7 @@
 - GPT Search page
 - Gpt Search Bar
 - Multi Language Feature
+- Integrate openAi api
 
 ## Features
 

@@ -53,12 +53,12 @@ const Header = () => {
   };
 
   return (
-    <header className="absolute z-20 w-full  px-8 py-4 bg-gradient-to-b flex justify-between items-center from-black">
+    <header className="absolute z-20 w-full  sm:px-8 px-4 py-4 bg-gradient-to-b from-black flex justify-between items-center  ">
       <div>
         <svg
           viewBox="0 0 111 30"
           data-uia="netflix-logo"
-          className="svg-icon svg-icon-netflix-logo"
+          className="svg-icon svg-icon-netflix-logo sm:w-fit w-[100px]"
           aria-hidden="true"
           focusable="false"
           width={140}
@@ -73,10 +73,10 @@ const Header = () => {
         </svg>
       </div>
       {user && (
-        <div className="flex gap-4">
+        <div className="flex sm:gap-4 items-center gap-2">
           {showGptSearch && (
             <select
-              className="bg-transparent text-white font-Poppins outline-none"
+              className="bg-transparent text-white font-Poppins outline-none text-sm sm:text-lg "
               onChange={handleLangChange}
             >
               {SUPPORTED_LANGUAGES.map((lang) => (
@@ -91,15 +91,15 @@ const Header = () => {
             </select>
           )}
           <button
-            className="text-white font-semiBold font-Poppins"
+            className="text-white font-semiBold font-Poppins text-sm sm:text-lg "
             onClick={handleGptSearchToggle}
           >
             {showGptSearch ? "Home Page" : "GPT Search"}
           </button>
-          <div className="flex gap-2">
-            <img className="w-8" src="/user.png" alt="user" />
+          <div className="flex gap-2 items-center">
+            <img className="w-8 sm:block hidden" src="/user.png" alt="user" />
             <span
-              className="font-bold text-white cursor-pointer"
+              className="font-bold text-white cursor-pointer text-sm sm:text-lg "
               onClick={handleSignOut}
             >
               (SignOut)
